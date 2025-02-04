@@ -31,7 +31,13 @@ public class HomeController {
  @DeleteMapping("/courses/{courseId}")
  public Course deleteCourse(@PathVariable String courseId){
         return this.courseService.deleteCourse(Long.parseLong(courseId));
+   // add data using put method
+//     @PutMapping
+//     public Course addCourse(String CourseId){
+//         return this.courseService.addCourse()
+//}
 
+     }
  }
 
-}
+
