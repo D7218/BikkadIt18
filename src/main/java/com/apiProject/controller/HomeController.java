@@ -16,28 +16,29 @@ public class HomeController {
     public String home(){
         return "this is home page";
     }
+    
     @GetMapping("/courses")
     public List<Course> getCourses(){
-    return this.courseService.getCourses();
+        return this.courseService.getCourses();
     }
+    
     @GetMapping("/courses/{courseId}")
- public Course getCourse(@PathVariable String courseId){
+    public Course getCourse(@PathVariable String courseId){
         return this.courseService.getCourse(Long.parseLong(courseId));
- }
- @PostMapping("/courses")
- public Course addCourse(@RequestBody Course course){
+    }
+    
+    @PostMapping("/courses")
+    public Course addCourse(@RequestBody Course course){
         return this.courseService.addCourse(course);
- }
- @DeleteMapping("/courses/{courseId}")
- public Course deleteCourse(@PathVariable String courseId){
+    }
+    
+    @DeleteMapping("/courses/{courseId}")
+    public Course deleteCourse(@PathVariable String courseId){
         return this.courseService.deleteCourse(Long.parseLong(courseId));
-   // add data using put method
-//     @PutMapping
-//     public Course addCourse(String CourseId){
-//         return this.courseService.addCourse()
-//}
-
-     }
- }
-
-
+    }
+    
+    @PutMapping("/courses/{courseId}")
+    public Course updateCourse(@PathVariable String courseId, @RequestBody Course course) {
+        return this.courseService.updateCourse(Long.parseLong(courseId), course);
+    }
+}
